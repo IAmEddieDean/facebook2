@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('facebook')
-.controller('ProfileCtrl', function($scope, $window, Profile){
+.controller('ProfileCtrl', function($scope, $window, Profile, sweetUrl){
   $scope.user = {};
 
   $scope.update = function(user){
     Profile.update(user)
     .then(function(){
-      $window.swal({title: 'Profile Saved', text: 'Your profile was successfully saved to the database.', type: 'success'});
+      $window.swal({title: 'Profile Saved', text: 'Your profile was successfully saved to the database.', imageUrl: sweetUrl});
     })
     .catch(function(){
       $window.swal({title: 'Profile Error', text: 'There was a problem saving your profile. Please try again.', type: 'error'});
